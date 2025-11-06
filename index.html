@@ -1,109 +1,49 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Inovite CDN</title>
-
-  <!-- Inline CSS (all styles here) -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CDN - INOVITE</title>
   <style>
-    :root{
-      --bg:#0f1724;
-      --card:#0b1220;
-      --muted:#98a0b3;
-      --accent:#6ee7b7;
-      --gap:16px;
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
-    html,body{height:100%;margin:0;background:linear-gradient(180deg,#071024 0%,var(--bg) 100%);color:#e6eef8;}
-    .wrap{max-width:1100px;margin:36px auto;padding:24px;}
-    header {display:flex;align-items:center;gap:16px;margin-bottom:18px}
-    .brand {width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,#0ea5a4,#7c3aed);display:flex;align-items:center;justify-content:center;font-weight:700}
-    h1{font-size:20px;margin:0}
-    p.lead{color:var(--muted);margin:6px 0 18px;font-size:13px}
 
-    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:var(--gap)}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 6px 18px rgba(2,6,23,0.6);display:flex;flex-direction:column;gap:10px}
-    .thumb{width:100%;height:140px;object-fit:cover;border-radius:8px;background:#081226;display:block}
-    .meta{display:flex;justify-content:space-between;align-items:center;gap:8px}
-    .meta .name{font-size:14px;color:#d6e7ff}
-    .meta .type{font-size:12px;color:var(--muted)}
-    a.link{display:inline-block;padding:8px 10px;border-radius:8px;background:rgba(255,255,255,0.03);color:var(--accent);text-decoration:none;font-weight:600;font-size:13px}
-    footer{margin-top:22px;color:var(--muted);font-size:13px;text-align:center}
+    .video-container {
+      width: 90vmin; /* keeps square aspect ratio relative to viewport */
+      max-width: 500px; /* optional maximum size */
+      aspect-ratio: 1 / 1; /* square */
+    }
 
-    /* responsive tweaks */
-    @media (max-width:480px){
-      .thumb{height:110px}
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* makes sure video fills the square */
+      display: block;
     }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div class="brand">IV</div>
-      <div>
-        <h1>Inovite CDN — assets</h1>
-        <p class="lead">Publicly served static assets. Use these URLs in website HTML or email templates (https required).</p>
-      </div>
-    </header>
-
-    <section>
-      <h2 style="font-size:14px;margin:0 0 10px;color:var(--muted)">Images — examples</h2>
-
-      <div class="grid">
-        <!-- Replace src hrefs below with real asset paths -->
-        <div class="card">
-          <img class="thumb" src="https://cdn.inovite.in/assets/images/website/hero/hero-banner-v1.jpg" alt="Hero banner">
-          <div class="meta">
-            <div>
-              <div class="name">hero-banner-v1.jpg</div>
-              <div class="type">/assets/images/website/hero</div>
-            </div>
-            <a class="link" href="https://cdn.inovite.in/assets/images/website/hero/hero-banner-v1.jpg" target="_blank" rel="noopener">Open</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <img class="thumb" src="https://cdn.inovite.in/assets/images/team/raj-patil-profile.png" alt="Raj profile">
-          <div class="meta">
-            <div>
-              <div class="name">raj-patil-profile.png</div>
-              <div class="type">/assets/images/team</div>
-            </div>
-            <a class="link" href="https://cdn.inovite.in/assets/images/team/raj-patil-profile.png" target="_blank" rel="noopener">Open</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <img class="thumb" src="https://cdn.inovite.in/assets/images/email/headers/internship-header.png" alt="Email header">
-          <div class="meta">
-            <div>
-              <div class="name">internship-header.png</div>
-              <div class="type">/assets/images/email/headers</div>
-            </div>
-            <a class="link" href="https://cdn.inovite.in/assets/images/email/headers/internship-header.png" target="_blank" rel="noopener">Open</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <video class="thumb" controls>
-            <source src="https://cdn.inovite.in/assets/videos/reels/sample-reel.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          <div class="meta">
-            <div>
-              <div class="name">sample-reel.mp4</div>
-              <div class="type">/assets/videos/reels</div>
-            </div>
-            <a class="link" href="https://cdn.inovite.in/assets/videos/reels/sample-reel.mp4" target="_blank" rel="noopener">Open</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      Tip: use HTTPS links in email HTML and set `Cache-Control` for assets to maximize delivery speed.
-    </footer>
+  <div class="video-container">
+    <video autoplay muted playsinline id="introVideo">
+      <source src="assets/website/Inovite%20vid.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
   </div>
+
+  <script>
+    const video = document.getElementById('introVideo');
+
+    // Redirect after video ends
+    video.addEventListener('ended', () => {
+      window.location.href = 'https://inovite.in';
+    });
+  </script>
 </body>
 </html>
