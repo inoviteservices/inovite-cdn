@@ -1,0 +1,5 @@
+# Ignore temporary and system files
+assets/images/temp/
+*.DS_Store
+*.log
+
